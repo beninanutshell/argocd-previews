@@ -1,20 +1,5 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
+apiVersion: v1
+kind: Namespace
 metadata:
   name: previews
-  namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-spec:
-  project: previews
-  source:
-    repoURL: https://github.com/beninanutshell/argocd-previews.git
-    targetRevision: HEAD
-    path: helm
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: previews
-  syncPolicy:
-    automated:
-      selfHeal: true
-      prune: true
+
